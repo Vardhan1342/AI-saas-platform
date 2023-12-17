@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 
-export const tools = [
+ const tools = [
     {
       label: 'Conversation',
       icon: MessageSquare,
@@ -43,7 +43,7 @@ export const tools = [
       bgColor: "bg-green-700/10",
       href: '/code',
     },
-  ];
+  ]  ;
 export default function HomePage() {
   const router = useRouter();
 
