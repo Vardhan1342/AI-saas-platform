@@ -5,7 +5,6 @@ const dayinms=86_400_000;
 
 export const checkSubscription=async()=>{
     const {userId} =auth();
-
     if(!userId){
         return false;
     }
