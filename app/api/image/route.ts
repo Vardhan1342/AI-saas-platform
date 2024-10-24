@@ -3,13 +3,11 @@ import OpenAI from "openai";
 import { auth } from "@clerk/nextjs";
 import { IncreaseApiLimit, checkApiLimit } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subscription";
-
+import Replicate from "replicate"
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-
 
 
   
@@ -38,8 +36,7 @@ const openai = new OpenAI({
           return new NextResponse("Free trail expired,",{status:403})
          }
         console.log("before response");
-        
-         const response = await openai.images.generate({
+        const response = await openai.images.generate({
           prompt,
           size:resolution,
           n:parseInt(amount,10)

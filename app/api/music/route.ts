@@ -13,8 +13,7 @@ const replicate = new Replicate({
       const { userId } = auth();
       const body = await req.json();
       const { prompt  } = body;
-       console.log("fetching started");
-       
+       console.log(prompt,"This iss ssss")
          if (!userId) {
            return new NextResponse("Unauthorized", { status: 401 }); 
          }
@@ -30,20 +29,19 @@ const replicate = new Replicate({
         }
        
         console.log("before response");
-        
-         const response = await replicate.run(
-            "riffusion/riffusion:8cf61ea6c56afd61d8f5b9ffd14d7c216c0a93844ce2d82ac1c9ecc9c7f24e05",
-            {
-              input: {
-                prompt_a: prompt
-              }
-            }
-          );
+          const input = {
+            prompt_a:prompt,
+           
+        };
+        console.log(prompt)
+         const response =  await replicate.run("riffusion/riffusion:8cf61ea6c56afd61d8f5b9ffd14d7c216c0a93844ce2d82ac1c9ecc9c7f24e05", { input });
+
         console.log("after response and responesis");
-        if(!isSubscribed)
-        {
-          await IncreaseApiLimit();
-        }
+        console.log(response)
+        // if(!isSubscribed)
+        // {
+        //   await IncreaseApiLimit();
+        // }
         return NextResponse.json(response);
     }
     catch(error)

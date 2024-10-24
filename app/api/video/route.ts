@@ -30,15 +30,14 @@ const replicate = new Replicate({
        
        
         console.log("before response");
-        
-         const response = await replicate.run(
-          "anotherjesse/zeroscope-v2-xl:9f747673945c62801b13b84701c783929c0ee784e4748ec062204894dda1a351",
-          {
-            input: {
-              prompt: prompt
-            }
-          }
-        );
+         const input={
+          prompt :prompt,
+          seed: 255224557,
+          n_prompt: "badhandv4, easynegative, ng_deepnegative_v1_75t, verybadimagenegative_v1.3, bad-artist, bad_prompt_version2-neg, teeth"
+      
+         }
+         const response =  await replicate.run("lucataco/animate-diff:beecf59c4aee8d81bf04f0381033dfa10dc16e845b4ae00d281e2fa377e48a9f", { input });
+
         console.log("after response and responesis");
        if(!isSubscribed){
         await IncreaseApiLimit();
@@ -46,7 +45,7 @@ const replicate = new Replicate({
         return NextResponse.json(response);
     }
     catch(error){
-      console.log('[CONVERSATION_ERROR]', error);
+      console.log('[VIDEO _ ERROR]', error);
       return new NextResponse("Internal Error", { status: 500 });
     }
   }

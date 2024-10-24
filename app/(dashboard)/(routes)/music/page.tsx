@@ -12,11 +12,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import Loader from '@/components/Loader';
-import UserAvatar from '@/components/UserAvatar';
-import BotAvatar from '@/components/BotAvatar';
 import { useProModal } from '@/hooks/use-pro-modal';
 import toast from 'react-hot-toast';
-// import { ChatCompletionRequestMessage } from "openai";
 
 
 
